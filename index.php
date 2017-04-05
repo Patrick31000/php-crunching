@@ -54,12 +54,28 @@ for ($i=1; $i<=10; $i++) {
 echo ($i+1)." ".$top[$i]['im:name']['label']."<br><hr>";
 }
 
+
+echo "Classement du film Gravity: <br>";
 for ($i=0; $i<count($top); $i++){
 if ($top[$i]['im:name']['label']=="Gravity"){
     echo "Le classement du film Gravity est: ".($i+1)."ème.<br><hr>";
 }
 }
- 
+
+
+echo "Classement du film Graviti (exception): <br>";
+try{
+for ($i=0; $i<count($top); $i++){
+if ($top[$i]['im:name']['label']=="Graviti"){
+    throw new Exception ("Le classement du film Graviti est: ".($i+1)."ème.<br><hr>");
+}
+}
+throw new Exception("Le film Graviti n'existe pas !<br><hr>");
+}catch (Exception $e){
+    echo $e->getMessage();
+}
+
+echo "Réalisateur du film 'The Lego movie': "; 
 for ($i=0; $i<count($top); $i++){
 if ($top[$i]['im:name']['label']=="The LEGO Movie"){
     echo "Les réalisateurs du film 'The LEGO movie' sont: ".$top[$i]['im:artist']['label']."<br><hr>";
